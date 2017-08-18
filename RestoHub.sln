@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoHub", "RestoHub\RestoHub.csproj", "{9DAD1EE2-EBBB-4F58-8ADE-46460DAC3D3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoHub", "RestoHub\RestoHub.csproj", "{75E264F1-D0E8-4BCC-907D-FC5FC47FD4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DAD1EE2-EBBB-4F58-8ADE-46460DAC3D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DAD1EE2-EBBB-4F58-8ADE-46460DAC3D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DAD1EE2-EBBB-4F58-8ADE-46460DAC3D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DAD1EE2-EBBB-4F58-8ADE-46460DAC3D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E264F1-D0E8-4BCC-907D-FC5FC47FD4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E264F1-D0E8-4BCC-907D-FC5FC47FD4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E264F1-D0E8-4BCC-907D-FC5FC47FD4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E264F1-D0E8-4BCC-907D-FC5FC47FD4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C95B88B3-BCD3-4E22-B2AD-54E8F0C2D88D}
 	EndGlobalSection
 EndGlobal

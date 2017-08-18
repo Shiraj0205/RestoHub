@@ -1,0 +1,59 @@
+﻿@model RestoHub.ViewModels.HomePageDataViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1>Restaurants</h1>
+</div>
+<div class="col-md-6">
+    <table class="table table-striped">
+        @{
+
+            <thead>
+                <tr>
+                    <th>
+                        Restaurant Name
+                    </th>
+                    <th>
+                        Cousine
+                    </th>
+                    <th>
+                        View
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            foreach (var restaurant in Model.Restaurants)
+            {
+                <tr>
+                    <td>
+                        
+                            @restaurant.Name
+
+                    </td>
+
+                    <td>
+                        @restaurant.Cousine
+                    </td>
+                    <td>
+                        <a href="Home/Details/@restaurant.Id">View</a>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </td>
+                </tr>
+
+            }
+        }
+    </table>
+</div>

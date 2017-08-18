@@ -1,9 +1,11 @@
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.deps.json
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.runtimeconfig.json
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.runtimeconfig.dev.json
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.dll
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.pdb
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.csprojResolveAssemblyReference.cache
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.AssemblyInfo.cs
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.dll
-C:\Users\iss_s\OneDrive\OneDrive - Paradigm Tax Group\Rockville\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.pdb
+E:\Data\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.deps.json
+E:\Data\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.runtimeconfig.json
+E:\Data\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.runtimeconfig.dev.json
+E:\Data\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.dll
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.csproj.CoreCompileInputs.cache
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.AssemblyInfoInputs.cache
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.AssemblyInfo.cs
+E:\Data\Projects\RestoHub\RestoHub\bin\Debug\netcoreapp1.1\RestoHub.pdb
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.dll
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.pdb
+E:\Data\Projects\RestoHub\RestoHub\obj\Debug\netcoreapp1.1\RestoHub.csprojResolveAssemblyReference.cache

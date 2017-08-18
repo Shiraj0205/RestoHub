@@ -7,35 +7,41 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RestoHub.Middlewares;
+using Microsoft.AspNetCore.Routing;
+using RestoHub.Services;
+using RestoHub.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestoHub
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; set; }
 
-        public IConfiguration Configuration { get; set; }
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();
+            
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(Configuration);
-            services.AddSingleton<IGreeter, Greeter>();
+            services.AddMvc();
+            services.AddScoped<IRestaurantData, RestaurantData>();
+            services.AddDbContext<RestoHubDbContext>(options => 
+                                                            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IHostingEnvironment env, 
-            ILoggerFactory loggerFactory,
-            IGreeter greeter)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
 
@@ -44,13 +50,20 @@ namespace RestoHub
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseNodeModules(env.ContentRootPath);
+
+            app.UseMvc(ConfigureRoutes);
+
             app.Run(async (context) =>
             {
-                //var message = Configuration["Greeting"];
-                var message = greeter.GetGreeting();
-
-                await context.Response.WriteAsync(message);
+                await context.Response.WriteAsync("Not Found !!!!");
             });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            routeBuilder.Build();
         }
     }
 }

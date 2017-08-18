@@ -1,0 +1,29 @@
+﻿@model RestoHub.ViewModels.RestaurantViewModel
+@using RestoHub.Enums
+
+@{
+    ViewBag.Title = "Add Restaurant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1>New Restaurant</h1>
+</div>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Cousine)
+            @Html.DropDownListFor(m => m.Cousine, Html.GetEnumSelectList(typeof(Cousines)))
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    }
+</div>
