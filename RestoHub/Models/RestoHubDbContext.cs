@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestoHub.Models
 {
-    public class RestoHubDbContext : DbContext
+    public class RestoHubDbContext : IdentityDbContext<User>
     {
         public RestoHubDbContext(DbContextOptions options) : base(options)
         {

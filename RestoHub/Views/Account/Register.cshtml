@@ -1,0 +1,45 @@
+﻿@model RegisterViewModel
+
+    @{ 
+        ViewBag.Title = "Register";
+    }
+
+<h1>Register</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly">
+
+    </div>
+    <div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="submit" class="btn btn-success" value="Register" />
+            </div>
+        </div>
+
+    </div>
+</form>

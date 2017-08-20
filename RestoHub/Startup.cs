@@ -13,6 +13,7 @@ using RestoHub.Services;
 using RestoHub.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace RestoHub
 {
@@ -38,6 +39,8 @@ namespace RestoHub
             services.AddScoped<IRestaurantData, RestaurantData>();
             services.AddDbContext<RestoHubDbContext>(options => 
                                                             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<RestoHubDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +55,7 @@ namespace RestoHub
 
             app.UseNodeModules(env.ContentRootPath);
 
+            app.UseIdentity();
             app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>

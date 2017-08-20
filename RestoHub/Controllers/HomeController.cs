@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestoHub.Models;
 using RestoHub.Services;
 using RestoHub.ViewModels;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace RestoHub.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
@@ -17,6 +19,8 @@ namespace RestoHub.Controllers
         {
             _restaurantData = restaurantData;
         }
+
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = _restaurantData.GetAll();
@@ -69,6 +73,7 @@ namespace RestoHub.Controllers
             return View(model);
         }
 
+        
         [HttpPost]
         public IActionResult Edit(int id, RestaurantViewModel model)
         {
