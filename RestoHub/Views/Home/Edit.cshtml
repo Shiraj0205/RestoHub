@@ -2,35 +2,36 @@
 @using RestoHub.Enums
 
 @{
-    ViewBag.Title = "Add Restaurant";
+    ViewBag.Title = "Edit Restaurant";
 }
 
 <div>
-    <h1>New Restaurant</h1>
+    <h1>Edit Restaurant</h1>
 </div>
 
 <div>
-    @using (Html.BeginForm())
-    {
+    <form method="post" asp-action="Edit">
         <div class="row">
             <div class="form-group col-md-6">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" class="form-control" />
-                
+                <span asp-validation-for="Name"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-6">
-                @Html.LabelFor(m => m.Cuisine, new { @class = "control-label" })
-                @Html.DropDownListFor(m => m.Cuisine, Html.GetEnumSelectList(typeof(Cuisines)), new { @class = "form-control" })
+                <label asp-for="Cuisine"></label>
+                <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(Cuisines))" class="form-control">
+                </select>
+                <span asp-validation-for="Cuisine"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-6">
-                <input type="submit" class="btn btn-success" value="Save" />
+                <input type="submit" class="btn btn-success" value="Update" />
             </div>
         </div>
-    }
+    </form>
 </div>

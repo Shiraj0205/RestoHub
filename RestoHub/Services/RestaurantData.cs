@@ -12,6 +12,9 @@ namespace RestoHub.Services
         HomePageDataViewModel GetAll();
         RestaurantViewModel Get(int id);
         Restaurant Add(Restaurant newRestaurant);
+        void Update(RestaurantViewModel newRestaurant);
+        void Commit();
+        void Delete(int id);
     }
 
     public class RestaurantData : IRestaurantData
@@ -31,6 +34,18 @@ namespace RestoHub.Services
             return newRestaurant;
         }
 
+        public void Commit()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = _context.Restaurants.FirstOrDefault(r => r.Id == id);
+            _context.Restaurants.Remove(restaurant);
+            _context.SaveChanges();
+        }
+
         public RestaurantViewModel Get(int id)
         {
             return (from r in _context.Restaurants
@@ -39,7 +54,7 @@ namespace RestoHub.Services
                     {
                         Id = r.Id,
                         Name = r.Name,
-                        Cousine = r.Cousine
+                        Cuisine = r.Cuisine
                     }).FirstOrDefault();
         }
 
@@ -51,12 +66,22 @@ namespace RestoHub.Services
                          {
                              Id = r.Id,
                              Name = r.Name,
-                             Cousine = r.Cousine
+                             Cuisine = r.Cuisine
                          }).ToList();
 
             model.Restaurants = restaurants;
 
             return model;
+        }
+
+        public void Update(RestaurantViewModel restaurant)
+        {
+            var model = _context.Restaurants.Where(r => r.Id == restaurant.Id).FirstOrDefault();
+            model.Name = restaurant.Name;
+            model.Cuisine = restaurant.Cuisine;
+            _context.Restaurants.Update(model);
+            _context.Entry(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 
@@ -71,19 +96,19 @@ namespace RestoHub.Services
     //            {
     //                Id = 1,
     //                Name = "Chipotale",
-    //                Cousine = Enums.Cousines.Japanese
+    //                Cuisine = Enums.Cuisines.Japanese
     //            },
     //            new RestaurantViewModel()
     //            {
     //                Id = 2,
     //                Name = "La Quinta",
-    //                Cousine = Enums.Cousines.American
+    //                Cuisine = Enums.Cuisines.American
     //            },
     //            new RestaurantViewModel()
     //            {
     //                Id = 3,
     //                Name = "Olice Garden",
-    //                Cousine = Enums.Cousines.Italian
+    //                Cuisine = Enums.Cuisines.Italian
     //            }
     //        };
     //    }

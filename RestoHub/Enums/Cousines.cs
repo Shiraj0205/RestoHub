@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RestoHub.Enums
 {
-    public enum Cousines
+    public enum Cuisines
     {
         None,
         American,

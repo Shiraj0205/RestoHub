@@ -12,6 +12,6 @@ namespace RestoHub.ViewModels
         public string Name { get; set; }
 
         [Required]
-        public Cousines Cousine { get; set; }
+        public Cuisines Cuisine { get; set; }
     }
 }

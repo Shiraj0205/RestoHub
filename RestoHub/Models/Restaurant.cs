@@ -8,6 +8,6 @@ namespace RestoHub.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public Cousines Cousine { get; set; }
+        public Cuisines Cuisine { get; set; }
     }
 }

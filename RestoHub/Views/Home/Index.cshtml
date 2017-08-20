@@ -1,7 +1,6 @@
-﻿@model RestoHub.ViewModels.HomePageDataViewModel
+﻿@model HomePageDataViewModel
 @{
-    ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
 <div>
@@ -34,8 +33,8 @@
             {
                 <tr>
                     <td>
-                        
-                            @restaurant.Name
+
+                        @restaurant.Name
 
                     </td>
 
@@ -43,10 +42,12 @@
                         @restaurant.Cousine
                     </td>
                     <td>
-                        <a href="Home/Details/@restaurant.Id">View</a>
+                        <a asp-action="Details" asp-route-id="@restaurant.Id">View</a>
                     </td>
                     <td>
-                        <span class="glyphicon glyphicon-edit"></span>
+                        <a asp-action="Edit" asp-route-id="@restaurant.Id">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
                     </td>
                     <td>
                         <span class="glyphicon glyphicon-trash"></span>

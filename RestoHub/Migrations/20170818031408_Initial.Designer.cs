@@ -23,7 +23,7 @@ namespace RestoHub.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Cousine");
+                    b.Property<int>("Cuisine");
 
                     b.Property<string>("Name");
 

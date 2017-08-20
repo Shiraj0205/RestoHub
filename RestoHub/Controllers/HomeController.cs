@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestoHub.Models;
 using RestoHub.Services;
 using RestoHub.ViewModels;
 using System;
@@ -49,13 +50,42 @@ namespace RestoHub.Controllers
         {
             if (ModelState.IsValid)
             {
-                var model1 = _restaurantData.GetAll();
-                return View("Index", model1);
+                Restaurant rest = new Restaurant();
+                rest.Name = model.Name;
+                rest.Cuisine = model.Cuisine;
+                _restaurantData.Add(rest);
+                return RedirectToAction("Index");
             }
             else
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = _restaurantData.Get(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, RestaurantViewModel model)
+        {
+            var restaurant = _restaurantData.Get(id);
+            if (ModelState.IsValid)
+            {
+                _restaurantData.Update(model);
+                return RedirectToAction ("Details", new { id = restaurant.Id });
+            }
+            return View();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            _restaurantData.Delete(id);
+            return View("Index");
         }
     }
 }
